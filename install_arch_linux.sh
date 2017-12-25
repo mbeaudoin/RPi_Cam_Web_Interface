@@ -413,6 +413,10 @@ sudo chown -R http:http $webroot$rpicamdir
 sudo cp etc/sudoers.d/RPI_Cam_Web_Interface /etc/sudoers.d/
 sudo chmod 440 /etc/sudoers.d/RPI_Cam_Web_Interface
 
+if [ ! -d src ]; then
+   mkdir src
+fi
+
 (cd src; git clone https://github.com/roberttidey/userland.git)
 cp src/userland/host_applications/linux/apps/raspicam/RaspiMCam.c src/raspimjpeg
 cp src/userland/host_applications/linux/apps/raspicam/RaspiMCmds.c src/raspimjpeg
