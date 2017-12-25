@@ -361,7 +361,7 @@ fi
 
 if [ "$webserver" == "apache" ]; then
    #sudo apt-get install -y apache2 $phpv $phpv-cli libapache2-mod-$phpv gpac motion zip libav-tools gstreamer1.0-tools
-   sudo pacman -S --needed apache php php-apache gpac motion zip gstreamer
+   sudo pacman -S --needed apache php php-apache gpac motion zip gstreamer make
    fn_apache
 elif [ "$webserver" == "nginx" ]; then
    sudo apt-get install -y nginx $phpv-fpm $phpv-cli $phpv-common php-apcu apache2-utils gpac motion zip libav-tools gstreamer1.0-tools
