@@ -413,8 +413,8 @@ sudo chown -R http:http $webroot$rpicamdir
 sudo cp etc/sudoers.d/RPI_Cam_Web_Interface /etc/sudoers.d/
 sudo chmod 440 /etc/sudoers.d/RPI_Cam_Web_Interface
 
-if [ ! -d src ]; then
-   mkdir src
+if [ ! -d src/raspimjpeg ]; then
+   mkdir -p src/raspimjpeg
 fi
 
 (cd src; git clone https://github.com/roberttidey/userland.git)
