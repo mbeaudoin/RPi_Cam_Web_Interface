@@ -185,7 +185,7 @@ fn_apache ()
     sudo awk '/NameVirtualHost \*:/{c+=1}{if(c==1){sub("NameVirtualHost \*:.*","NameVirtualHost *:'$webport'",$0)};print}' /etc/httpd/ports.conf > "$tmpfile" && sudo mv "$tmpfile" /etc/httpd/ports.conf
     sudo awk '/Listen/{c+=1}{if(c==1){sub("Listen.*","Listen '$webport'",$0)};print}' /etc/httpd/ports.conf > "$tmpfile" && sudo mv "$tmpfile" /etc/httpd/ports.conf
     awk '/<VirtualHost \*:/{c+=1}{if(c==1){sub("<VirtualHost \*:.*","<VirtualHost *:'$webport'>",$0)};print}' $aconf > "$tmpfile" && sudo mv "$tmpfile" $aconf
-    sudo sed -i "s/<Directory\ $webroot\/.*/<Directory\ $webroot$rpicamdirEsc>/g" $aconf
+    sudo sed -i "s/<Directory\ $webrootEsc\/.*/<Directory\ $webrootEsc$rpicamdirEsc>/g" $aconf
     if [ "$user" == "" ]; then
 	sudo sed -i "s/AllowOverride\ .*/AllowOverride None/g" $aconf
     else
@@ -262,7 +262,7 @@ fn_nginx ()
 fn_lighttpd ()
 {
     sudo lighty-enable-mod fastcgi-php
-    sudo sed -i "s/^server.document-root.*/server.document-root  = \"$webroot$rpicamdirEsc\"/g" /etc/lighttpd/lighttpd.conf
+    sudo sed -i "s/^server.document-root.*/server.document-root  = \"$webrootEsc$rpicamdirEsc\"/g" /etc/lighttpd/lighttpd.conf
     sudo sed -i "s/^server.port.*/server.port  = $webport/g" /etc/lighttpd/lighttpd.conf
     #sudo service lighttpd restart  
     sudo /etc/init.d/lighttpd force-reload
