@@ -30,7 +30,9 @@
 # Edited by slabua to support custom installation folder
 # Additions by btidey, miraaz, gigpi
 # Rewritten and split up by Bob Tidey 
-
+#
+# See: https://elinux.org/RPi-Cam-Web-Interface
+#
 #Debug enable next 3 lines
 exec 5> install.txt
 BASH_XTRACEFD="5"
