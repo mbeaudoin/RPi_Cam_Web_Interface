@@ -173,6 +173,9 @@ fn_php ()
 
 fn_apache ()
 {
+    # make sure http user has a home directory
+    usermod -d $webroot http
+    
     aconf="etc/httpd/conf/raspicam.conf"
     cp $aconf.1 $aconf
     if [ -e "\/$aconf" ]; then
