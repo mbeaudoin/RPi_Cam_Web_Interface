@@ -332,6 +332,7 @@ Requires=systemd-networkd.service
 
 [Service]
 ExecStart=/usr/local/sbin/start_raspimjpeg_service.sh
+Type=forking
 
 [Install]
 WantedBy=multi-user.target
